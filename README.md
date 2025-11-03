@@ -193,7 +193,7 @@ php artisan serve
 
 ## 👨‍💻 Author
 
-**XmanRana** - Chandigarh University, BCA 3rd Year
+**XmanRana**
 
 ---
 
