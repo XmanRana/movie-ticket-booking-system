@@ -191,10 +191,10 @@ php artisan serve
 
 ---
 
-## 👨‍💻 Author
+## 👨‍💻 Authors
 
 **XmanRana**
-
+**Xagarrr**
 ---
 
 **Status:** ✅ Complete | **Updated:** Nov 3, 2025
