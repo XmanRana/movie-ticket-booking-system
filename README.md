@@ -194,7 +194,6 @@ php artisan serve
 ## 👨‍💻 Authors
 
 **XmanRana**
-
 **Xagarrr**
 ---
 
