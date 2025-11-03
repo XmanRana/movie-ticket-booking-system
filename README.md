@@ -193,7 +193,7 @@ php artisan serve
 
 ## 👨‍💻 Authors
 
-**XmanRana**
+**XmanRana** **&**
 **Xagarrr**
 ---
 
