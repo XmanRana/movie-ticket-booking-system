@@ -1,85 +1,200 @@
-🎬 Movie Ticket Booking System
-A Laravel-based movie ticket booking system demonstrating Arrays, Structures, and Loops.
+# 🎬 Movie Ticket Booking System
 
-📹 Project Demo Video
-Watch Full Project Demo on YouTube
+A Laravel-based movie ticket booking system demonstrating **Arrays**, **Structures**, and **Loops**.
 
-(Unlisted Video - Complete Project Walkthrough)
+---
 
-📚 Computing Concepts
-Concept	Implementation
-ARRAYS	Collections: filter(), map(), groupBy(), pluck()
-STRUCTURES	8 Database Tables with Foreign Keys & Eloquent ORM
-LOOPS	@foreach in Blade, foreach in Controllers, Nested Loops
-✨ Features
-✅ Browse movies with posters
+## 📹 Project Demo Video
 
-✅ View shows grouped by date
+[![Movie Ticket Booking System - Demo](https://img.youtube.com/vi/kG8FWBFK9Y4/maxresdefault.jpg)](https://youtu.be/kG8FWBFK9Y4)
 
-✅ Interactive seat selection (2D grid)
+**[▶️ Watch Full Project Demo on YouTube](https://youtu.be/kG8FWBFK9Y4)**
 
-✅ Real-time price calculation
+---
 
-✅ Book tickets with confirmation
+## 📚 Computing Concepts
 
-✅ View & cancel bookings
+| Concept | Implementation |
+|---------|-----------------|
+| **ARRAYS** | Collections: `filter()`, `map()`, `groupBy()`, `pluck()` |
+| **STRUCTURES** | 8 Database Tables with Foreign Keys & Eloquent ORM |
+| **LOOPS** | `@foreach` in Blade, `foreach` in Controllers, Nested Loops |
 
-✅ Professional Bootstrap UI
+---
 
-✅ Responsive design
+## ✨ Features
 
-🛠️ Tech Stack
-Backend: Laravel 12.36
+- ✅ Browse movies with posters
+- ✅ View shows grouped by date
+- ✅ Interactive seat selection (2D grid)
+- ✅ Real-time price calculation
+- ✅ Book tickets with confirmation
+- ✅ View & cancel bookings
+- ✅ Professional Bootstrap UI
+- ✅ Responsive design
 
-Database: SQLite
+---
 
-Frontend: Blade + Bootstrap 5
+## 🛠️ Tech Stack
 
-Language: PHP 8.2
+- **Backend:** Laravel 12.36
+- **Database:** SQLite
+- **Frontend:** Blade + Bootstrap 5
+- **Language:** PHP 8.2
 
-📦 Installation
-1. Clone Repository
-bash
+---
+
+## 📦 Installation
+
+### 1. Clone Repository
+```bash
 git clone https://github.com/XmanRana/movie-ticket-booking-system.git
 cd movie-ticket-booking-system
-2. Install Dependencies
-bash
+```
+
+### 2. Install Dependencies
+```bash
 composer install
-3. Setup Environment
-bash
+```
+
+### 3. Setup Environment
+```bash
 cp .env.example .env
 php artisan key:generate
-4. Database
-bash
+```
+
+### 4. Database
+```bash
 php artisan migrate
-5. Run Server
-bash
+```
+
+### 5. Run Server
+```bash
 php artisan serve
-Access: http://127.0.0.1:8000/movies
+```
 
-🗄️ Database Tables
-Users - User authentication
+**Access:** `http://127.0.0.1:8000/movies`
 
-Movies - Movie catalog
+---
 
-Theatres - Cinema information
+## 🗄️ Database Tables
 
-Screens - Theatre screens
+1. **Users** - User authentication
+2. **Movies** - Movie catalog
+3. **Theatres** - Cinema information
+4. **Screens** - Theatre screens
+5. **Shows** - Movie shows
+6. **Seats** - Seat management
+7. **Bookings** - Ticket bookings
+8. **TicketBookings** - Individual tickets
 
-Shows - Movie shows
+---
 
-Seats - Seat management
+## 💡 Key Code Examples
 
-Bookings - Ticket bookings
-
-TicketBookings - Individual tickets
-
-💡 Key Code Examples
-Collections (filter, map, groupBy)
-php
+### Collections (filter, map, groupBy)
+```php
 $activeMovies = Movie::all()
     ->filter(fn($m) => $m->isActive())
     ->sortByDesc('release_date');
 
 $groupedShows = $shows->groupBy(function($show) {
-    return $show->sho
+    return $show->show_time->format('Y-m-d');
+});
+```
+
+### Loops (Creating Tickets)
+```php
+foreach ($seatIds as $seatId) {
+    TicketBooking::create([
+        'booking_id' => $booking->id,
+        'seat_id' => $seatId
+    ]);
+}
+```
+
+### Blade @foreach
+```blade
+@foreach($movies as $movie)
+    @foreach($movie->shows as $show)
+        {{ $show->show_time }}
+    @endforeach
+@endforeach
+```
+
+---
+
+## 🎯 Project Structure
+
+```
+app/
+├── Models/ (7 models)
+└── Http/Controllers/ (3 controllers)
+
+database/
+└── migrations/ (7 migration files)
+
+resources/views/
+├── layouts/app.blade.php
+├── movies/
+│   ├── index.blade.php
+│   └── show.blade.php
+└── bookings/index.blade.php
+
+routes/web.php
+```
+
+---
+
+## 📝 Features Walkthrough
+
+### Browse Movies
+- View all movies with posters at `/movies`
+- See genre, language, duration, rating
+
+### Select Show
+- Click on movie to view details
+- Choose show by date & time
+- View available seats count
+
+### Book Tickets
+- Click "Book Seats"
+- Select multiple seats from grid
+- See real-time total price
+- Click "Proceed to Payment"
+
+### Manage Bookings
+- Click "My Bookings" at `/bookings`
+- View all your bookings
+- See booking reference number
+- Cancel bookings anytime
+
+---
+
+## 🔧 Commands
+
+```bash
+php artisan cache:clear
+php artisan tinker
+php artisan migrate
+php artisan route:list
+php artisan serve
+```
+
+---
+
+## ✅ Computing Concepts Checklist
+
+- ✅ **Arrays:** filter(), map(), groupBy(), pluck() operations
+- ✅ **Structures:** 8-table relational database with proper relationships
+- ✅ **Loops:** Multiple @foreach in views, foreach in controllers, nested loops
+
+---
+
+## 👨‍💻 Author
+
+**XmanRana** - Chandigarh University, BCA 3rd Year
+
+---
+
+**Status:** ✅ Complete | **Updated:** Nov 3, 2025
